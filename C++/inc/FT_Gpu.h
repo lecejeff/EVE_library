@@ -488,8 +488,8 @@ Author : FTDI
 #define INVERT               5UL
 #define KEEP                 1UL
 #define L1                   1UL
-#define L2                   17UL
-#define L4                   2UL
+//#define L2                   17UL
+//#define L4                   2UL
 #define L8                   3UL
 #define LEQUAL               2UL
 #define LESS                 1UL
@@ -525,6 +525,7 @@ Author : FTDI
 #define PALETTED565          14UL
 #define PALETTED8            16UL
 #define FTPOINTS             2UL
+#define POINTS               2UL
 #define RAM_CMD              3178496UL
 #define RAM_DL               3145728UL
 #define RAM_G                0UL
@@ -548,6 +549,7 @@ Author : FTDI
 #define REG_CRC              3154296UL
 #define REG_CSPREAD          3154024UL
 #define REG_CTOUCH_EXTENDED  3154184UL
+#define REG_CTOUCH_MODE      0x302104
 //modified below to reflect the same as datasheet
 #define REG_CTOUCH_TOUCH0_XY 3154212UL
 #define REG_CTOUCH_TOUCH4_X  3154284UL

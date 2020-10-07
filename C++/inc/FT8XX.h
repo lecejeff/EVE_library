@@ -53,9 +53,12 @@ class FT8XX_EVE
       void modify_element_string (unsigned char number, unsigned char type, char *str);  
       void write_bitmap (const unsigned char *img_ptr, const unsigned char *lut_ptr, unsigned long img_length, unsigned long base_adr);    
 
+      void CMD_tracker(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned char tag);
+
       #if MAX_GRADIENT_NB > 0
          void CMD_gradient(unsigned char number, unsigned int x0, unsigned int y0, unsigned long rgb0, unsigned int x1, unsigned int y1, unsigned long rgb1);
          void draw_gradient (STGradient *st_Gradient);
+         void modify_gradient (STGradient *st_Gradient, unsigned char type, unsigned long value);
          unsigned char get_gradient_nb (void);
       #endif
 
@@ -74,8 +77,9 @@ class FT8XX_EVE
 
       #if MAX_SLIDER_NB > 0
          void CMD_slider (unsigned char number, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int opt, unsigned int v, unsigned int r);
-         unsigned int slider_update (STTouch touch_read, STSlider *st_Slider, STWindow *st_Window);
+         //unsigned int slider_update (STTouch touch_read, STSlider *st_Slider, STWindow *st_Window);
          void draw_slider (STSlider *st_Slider);
+         void modify_slider (STSlider *st_Slider, unsigned char type, unsigned int value);
          unsigned char get_slider_nb (void);
       #endif
 
@@ -88,13 +92,15 @@ class FT8XX_EVE
       #if MAX_NUMBER_NB > 0
          void CMD_number (unsigned char number, unsigned int x, unsigned int y, unsigned int f, unsigned int o, unsigned long n);
          void draw_number (STNumber *st_Number);
-         void modify_number (STNumber *st_Number, unsigned long n);
+         void modify_number (STNumber *st_Number, unsigned char type, unsigned long value);
          unsigned char get_number_nb (void);
       #endif
 
       #if MAX_BUTTON_NB > 0
          void CMD_button (unsigned char number, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int f, unsigned int o, const char *str);
          void draw_button (STButton *st_Button);
+         void modify_button (STButton *st_Button, unsigned char type, unsigned int value);
+         void modify_button_string (STButton *st_Button, char *str, unsigned char length);
          unsigned char get_button_nb (void);
       #endif
 
@@ -115,7 +121,7 @@ class FT8XX_EVE
       #if MAX_SCROLLBAR_NB > 0
          void CMD_scrollbar (unsigned char number, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int opt, unsigned int val, unsigned int size, unsigned int range);
          void draw_scrollbar  (STScrollbar *st_Scrollbar);
-         void modify_scrollbar (STScrollbar *st_Scrollbar, unsigned int new_value);
+         void modify_scrollbar (STScrollbar *st_Scrollbar, unsigned char type, unsigned int value);
          unsigned char get_scrollbar_nb (void);
       #endif
 
@@ -129,7 +135,7 @@ class FT8XX_EVE
       #if MAX_GAUGE_NB > 0
          void CMD_gauge (unsigned char number, unsigned int x, unsigned int y, unsigned int r, unsigned int opt, unsigned int maj, unsigned int min, unsigned int val, unsigned int range);
          void draw_gauge (STGauge *st_Gauge);
-         void modify_gauge (STGauge *st_Gauge, unsigned int val);
+         void modify_gauge (STGauge *st_Gauge, unsigned char type, unsigned int value);
          unsigned char get_gauge_nb (void);
       #endif
 

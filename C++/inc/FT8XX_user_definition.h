@@ -24,7 +24,7 @@
 
 //#define RIVERDI_800x480_CAPACITIVE_FT813
 #ifdef RIVERDI_800x480_CAPACITIVE_FT813
-    #define TOUCH_PANEL_CAPACITIVE
+    #define TOUCH_PANEL_CAPACITIVE 
 #endif
 
 // Definitions of the amount of primitives to compile
@@ -33,9 +33,9 @@
 #define MAX_GRADIENT_NB 1
 #define MAX_WINDOW_NB 0
 #define MAX_SLIDER_NB 0
-#define MAX_BUTTON_NB 12
-#define MAX_TEXT_NB 25
-#define MAX_NUMBER_NB 9
+#define MAX_BUTTON_NB 18
+#define MAX_TEXT_NB 32
+#define MAX_NUMBER_NB 17
 #define MAX_TOGGLE_NB 5
 #define MAX_DIAL_NB 0
 #define MAX_PROGRESS_NB 0
@@ -45,6 +45,12 @@
 #define MAX_KEYS_NB 0
 
 #if MAX_GRADIENT_NB > 0
+#define GRADIENT_X0     0
+#define GRADIENT_Y0     1
+#define GRADIENT_RGB0   2
+#define GRADIENT_X1     3
+#define GRADIENT_Y1     4
+#define GRADIENT_RGB1   5
 typedef struct
 {
     unsigned int x0;
@@ -75,6 +81,14 @@ extern STKeys st_Keys[MAX_KEYS_NB];
 #endif
 
 #if MAX_SCROLLBAR_NB > 0
+#define SCROLLBAR_X         0
+#define SCROLLBAR_Y         1
+#define SCROLLBAR_WIDTH     2
+#define SCROLLBAR_HEIGHT    3
+#define SCROLLBAR_OPT       4
+#define SCROLLBAR_VAL       5
+#define SCROLLBAR_SIZE      6
+#define SCROLLBAR_RANGE     7
 typedef struct
 {
    unsigned int x;
@@ -104,6 +118,14 @@ extern STDial st_Dial[MAX_DIAL_NB]; // dial struct initialization
 #endif
 
 #if MAX_GAUGE_NB > 0
+#define GAUGE_X         0
+#define GAUGE_Y         1
+#define GAUGE_RADIUS    2
+#define GAUGE_OPT       3
+#define GAUGE_MAJ       4
+#define GAUGE_MIN       5
+#define GAUGE_VAL       6
+#define GAUGE_RANGE     7
 typedef struct
 {
    unsigned int x;
@@ -180,6 +202,12 @@ extern STRectangle st_Rectangle[MAX_RECT_NB]; // rectangle struct initialization
 #endif
 
 #if MAX_BUTTON_NB > 0
+#define BUTTON_X        0
+#define BUTTON_Y        1
+#define BUTTON_W        2
+#define BUTTON_H        3
+#define BUTTON_FONT     4
+#define BUTTON_OPT      5
 typedef struct
 {
     unsigned int x;
@@ -197,6 +225,11 @@ extern STButton st_Button[MAX_BUTTON_NB]; // button struct initialization
 #endif
 
 #if MAX_NUMBER_NB > 0
+#define NUMBER_X        0
+#define NUMBER_Y        1
+#define NUMBER_FONT     2
+#define NUMBER_OPT      3
+#define NUMBER_VAL      4
 typedef struct
 {
     unsigned int x;
@@ -224,20 +257,22 @@ extern STText st_Text[MAX_TEXT_NB]; // text struct initialization
 #endif
 
 #if MAX_SLIDER_NB > 0
+#define SLIDER_X        0
+#define SLIDER_Y        1
+#define SLIDER_W        2
+#define SLIDER_H        3
+#define SLIDER_OPT      4
+#define SLIDER_VAL      5
+#define SLIDER_RANGE    6
 typedef struct
 {
-    unsigned int X1;
-    unsigned int Y1;
-    unsigned int Width;
-    unsigned int Height;
+    unsigned int x;
+    unsigned int y;
+    unsigned int w;
+    unsigned int h;
     unsigned int opt;
-    unsigned int Value;
-    unsigned int Range;
-    unsigned int yMin;
-    unsigned int yMax;
-    unsigned int xMin;
-    unsigned int xMax;
-    unsigned int step;
+    unsigned int val;
+    unsigned int range;
     unsigned char touch_tag;
 }STSlider;
 extern STSlider st_Slider[MAX_SLIDER_NB]; // slider struct initialization
